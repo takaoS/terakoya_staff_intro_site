@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 
 class StaffListPage extends StatefulWidget {
-  const StaffListPage({super.key, required this.title});
-
-  // This widget is the home page of your application.
-  // This class is the configuration for the state.
-  // Fields in a Widget subclass are always marked "final".
-
-  final String title;
-
   @override
   State<StaffListPage> createState() => _StaffListPageState();
 }
@@ -26,8 +18,7 @@ class _StaffListPageState extends State<StaffListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object.
-        title: Text(widget.title),
+        title: Text('学生スタッフ 一覧ページ'),
       ),
       body: Center(
         child: Column(
