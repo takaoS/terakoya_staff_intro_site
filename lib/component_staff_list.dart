@@ -12,11 +12,10 @@ class _StaffListComponentState extends State<StaffListComponent> {
       slivers: [
         SliverGrid(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200.0, //　一つのアイテムの最大横幅
-            mainAxisSpacing: 10.0, // 縦の隙間
-            crossAxisSpacing: 10.0, // 横の隙間
-            childAspectRatio: 0.8, // アスペクト比 (1だと正方形)
-            // https://api.flutter.dev/flutter/rendering/SliverGridDelegateWithMaxCrossAxisExtent-class.html
+            maxCrossAxisExtent: 200.0,
+            mainAxisSpacing: 10.0,
+            crossAxisSpacing: 10.0,
+            childAspectRatio: 0.8,
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
