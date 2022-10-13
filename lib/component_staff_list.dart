@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
 
 class StaffListComponent extends StatefulWidget {
   @override
@@ -19,11 +20,19 @@ class _StaffListComponentState extends State<StaffListComponent> {
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return Container(
-                alignment: Alignment.center,
-                color: Colors.teal[100 * (index % 9)],
-                child: SingleChildScrollView(
-                  child: StaffListItem(),
+              return GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return StaffDetailPage();
+                  }));
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  color: Colors.teal[100 * (index % 9)],
+                  child: SingleChildScrollView(
+                    child: StaffListItem(),
+                  ),
                 ),
               );
             },
@@ -43,7 +52,7 @@ class StaffListItem extends StatelessWidget {
       children: [
         Image.network('https://drive.google.com/uc?export=view&id=' +
             '1ntGLjC5PuoVC59VXP0iOnsGI7M4IIvCp'),
-        Text('Takao Sekiguchi'),
+        Text('森啓太'),
       ],
     );
   }
