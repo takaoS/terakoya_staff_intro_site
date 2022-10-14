@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "461314866481",
+    "project_id": "terakoya-intro-site",
+    "storage_bucket": "terakoya-intro-site.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461314866481:android:8f3b54fee29fceab66c410",
+        "android_client_info": {
+          "package_name": "com.example.terakoya_staff_intro_site"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461314866481-r8j0tqjfauc6afps6oltmmvr2r1tjk59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmT2IAVIyxeWFkh0EAR__yXWE2Y26pHa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461314866481-r8j0tqjfauc6afps6oltmmvr2r1tjk59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
