@@ -63,12 +63,20 @@ class StaffListItem extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    var info = staff['prefectures'];
+    if (staff['Terakoya'] != '') {
+      info += ' / ' + staff['Terakoya'];
+    }
+    if (staff['SkillTeam'] != '') {
+      info += ' / ' + staff['SkillTeam'];
+    }
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.network('https://drive.google.com/uc?export=view&id=' +
-            '1ntGLjC5PuoVC59VXP0iOnsGI7M4IIvCp'),
+        Image.network(staff['imgUrl']),
         Text(staff['fullName']),
+        Text(info),
       ],
     );
   }
