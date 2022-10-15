@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/component_staff_detail.dart';
+import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffDetailPage extends StatefulWidget {
+  var staff;
+  StaffDetailPage(staff) {
+    this.staff = staff;
+  }
   @override
   _StaffDetailPageState createState() => _StaffDetailPageState();
 }
@@ -25,7 +30,7 @@ class _StaffDetailPageState extends State<StaffDetailPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('森啓太' + ' のプロフィール'),
+        title: Text(widget.staff[Staff.fullName.castToString()] + ' のプロフィール'),
       ),
       body: Center(
         child: Container(
@@ -35,7 +40,7 @@ class _StaffDetailPageState extends State<StaffDetailPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                StaffDetailComponent(),
+                StaffDetailComponent(widget.staff),
                 TextButton(
                   child: Text('Back'),
                   onPressed: () => Navigator.of(context).pop(),
