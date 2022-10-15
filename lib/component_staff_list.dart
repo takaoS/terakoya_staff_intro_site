@@ -33,7 +33,7 @@ class _StaffListComponentState extends State<StaffListComponent> {
                       onTap: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return StaffDetailPage();
+                          return StaffDetailPage(staff);
                         }));
                       },
                       child: Container(
@@ -64,19 +64,19 @@ class StaffListItem extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-    var info = staff[Staff.prefectures];
-    if (staff[Staff.Terakoya] != '') {
-      info += ' / ' + staff[Staff.Terakoya];
+    var info = staff[Staff.prefectures.castToString()];
+    if (staff[Staff.Terakoya.castToString()] != '') {
+      info += ' / ' + staff[Staff.Terakoya.castToString()];
     }
-    if (staff[Staff.SkillTeam] != '') {
-      info += ' / ' + staff[Staff.SkillTeam];
+    if (staff[Staff.SkillTeam.castToString()] != '') {
+      info += ' / ' + staff[Staff.SkillTeam.castToString()];
     }
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.network(staff[Staff.imgUrl]),
-        Text(staff[Staff.fullName]),
+        Image.network(staff[Staff.imgUrl.castToString()]),
+        Text(staff[Staff.fullName.castToString()]),
         Text(info),
       ],
     );
