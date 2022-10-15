@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
+import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffListComponent extends StatefulWidget {
   @override
@@ -63,19 +64,19 @@ class StaffListItem extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-    var info = staff['prefectures'];
-    if (staff['Terakoya'] != '') {
-      info += ' / ' + staff['Terakoya'];
+    var info = staff[Staff.prefectures];
+    if (staff[Staff.Terakoya] != '') {
+      info += ' / ' + staff[Staff.Terakoya];
     }
-    if (staff['SkillTeam'] != '') {
-      info += ' / ' + staff['SkillTeam'];
+    if (staff[Staff.SkillTeam] != '') {
+      info += ' / ' + staff[Staff.SkillTeam];
     }
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.network(staff['imgUrl']),
-        Text(staff['fullName']),
+        Image.network(staff[Staff.imgUrl]),
+        Text(staff[Staff.fullName]),
         Text(info),
       ],
     );
