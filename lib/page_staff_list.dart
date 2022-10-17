@@ -36,7 +36,31 @@ class _StaffListPageState extends State<StaffListPage> {
                   onPressed: () => setState(() {
                     sort = Staff.prefectures.castToString();
                   }),
-                )
+                ),
+                ElevatedButton(
+                  child: Text(Staff.Terakoya.staffColName),
+                  onPressed: () => setState(() {
+                    sort = Staff.Terakoya.castToString();
+                  }),
+                ),
+                ElevatedButton(
+                  child: Text(Staff.SkillTeam.staffColName),
+                  onPressed: () => setState(() {
+                    sort = Staff.SkillTeam.castToString();
+                  }),
+                ),
+                ElevatedButton(
+                  child: Text(Staff.schoolYear.staffColName),
+                  onPressed: () => setState(() {
+                    sort = Staff.schoolYear.castToString();
+                  }),
+                ),
+                ElevatedButton(
+                  child: Text(Staff.joinDate.staffColName),
+                  onPressed: () => setState(() {
+                    sort = Staff.joinDate.castToString();
+                  }),
+                ),
               ],
             ),
             Row(
