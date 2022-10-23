@@ -29,7 +29,7 @@ class _StaffSearchComponentState extends State<StaffSearchComponent> {
       stream: query.snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return const Text('something went wrong');
+          return const Text('不具合が発生しました…サポートロボにお問い合わせください (error code: 002)');
         } else if (snapshot.hasData || snapshot.data != null) {
           return CustomScrollView(
             slivers: [

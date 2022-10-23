@@ -27,7 +27,7 @@ class _StaffListComponentState extends State<StaffListComponent> {
       stream: query.snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return const Text('something went wrong');
+          return const Text('不具合が発生しました…サポートロボにお問い合わせください (error code: 001)');
         } else if (snapshot.hasData || snapshot.data != null) {
           return CustomScrollView(
             slivers: [

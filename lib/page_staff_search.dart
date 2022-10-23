@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:terakoya_staff_intro_site/component_staff_sort.dart';
 import 'package:terakoya_staff_intro_site/component_staff_search.dart';
 
 class StaffSearchPage extends StatefulWidget {
