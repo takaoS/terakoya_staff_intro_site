@@ -41,42 +41,58 @@ class _StaffListPageState extends State<StaffListPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('並び替え：'),
-                ElevatedButton(
-                  child: Text(Staff.prefectures.staffColName),
-                  onPressed: () => setState(() {
-                    sort = Staff.prefectures.castToString();
-                  }),
-                ),
-                ElevatedButton(
-                  child: Text(Staff.Terakoya.staffColName),
-                  onPressed: () => setState(() {
-                    sort = Staff.Terakoya.castToString();
-                  }),
-                ),
-                ElevatedButton(
-                  child: Text(Staff.SkillTeam.staffColName),
-                  onPressed: () => setState(() {
-                    sort = Staff.SkillTeam.castToString();
-                  }),
-                ),
-                ElevatedButton(
-                  child: Text(Staff.schoolYear.staffColName),
-                  onPressed: () => setState(() {
-                    sort = Staff.schoolYear.castToString();
-                  }),
-                ),
-                ElevatedButton(
-                  child: Text(Staff.joinDate.staffColName),
-                  onPressed: () => setState(() {
-                    sort = Staff.joinDate.castToString();
-                  }),
-                ),
+                const Icon(Icons.sort_by_alpha),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                          child: Text(Staff.prefectures.staffColName),
+                          onPressed: () => setState(() {
+                            sort = Staff.prefectures.castToString();
+                          }),
+                        ),
+                        ElevatedButton(
+                          child: Text(Staff.schoolYear.staffColName),
+                          onPressed: () => setState(() {
+                            sort = Staff.schoolYear.castToString();
+                          }),
+                        ),
+                        ElevatedButton(
+                          child: Text(Staff.joinDate.staffColName),
+                          onPressed: () => setState(() {
+                            sort = Staff.joinDate.castToString();
+                          }),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                          child: Text(Staff.Terakoya.staffColName),
+                          onPressed: () => setState(() {
+                            sort = Staff.Terakoya.castToString();
+                          }),
+                        ),
+                        ElevatedButton(
+                          child: Text(Staff.SkillTeam.staffColName),
+                          onPressed: () => setState(() {
+                            sort = Staff.SkillTeam.castToString();
+                          }),
+                        ),
+                      ],
+                    )
+                  ],
+                )
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const Icon(Icons.compare_arrows),
                 ElevatedButton(
                   child: const Text('昇順'),
                   onPressed: () => setState(() {
