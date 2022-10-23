@@ -34,31 +34,37 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
       ),
     );
   }
-}
 
-Widget searchTextField() {
-  return const TextField(
-    autofocus: true,
-    cursorColor: Colors.green,
-    style: TextStyle(
-      color: Colors.blue,
-      fontSize: 16,
-    ),
-    textInputAction: TextInputAction.search,
-    decoration: InputDecoration(
-      enabledBorder: UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.red),
-      ),
-      focusedBorder: UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.yellow),
-      ),
-      hintText: 'ex1. 寺子屋あすは , ex2. 神奈川県',
-      hintStyle: TextStyle(
-        color: Colors.orange,
+  Widget searchTextField() {
+    return TextField(
+      autofocus: true,
+      cursorColor: Colors.green,
+      style: const TextStyle(
+        color: Colors.white,
         fontSize: 16,
       ),
-    ),
-  );
+      textInputAction: TextInputAction.search,
+      decoration: const InputDecoration(
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.red),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.yellow),
+        ),
+        hintText: 'ex1. 寺子屋あすは , ex2. 神奈川県',
+        hintStyle: TextStyle(
+          color: Colors.orange,
+          fontSize: 16,
+        ),
+      ),
+      onChanged: (text) {
+        setState(() {
+          searchWords = convertTextForBigram(text);
+          print(searchWords);
+        });
+      },
+    );
+  }
 }
 
 List convertTextForBigram(text) {
