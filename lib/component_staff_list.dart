@@ -6,10 +6,12 @@ import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 class StaffListComponent extends StatefulWidget {
   var sort;
   var isDescending;
+
   StaffListComponent(sort, isDescending) {
     this.sort = sort;
     this.isDescending = isDescending;
   }
+
   @override
   _StaffListComponentState createState() => _StaffListComponentState();
 }
@@ -69,12 +71,15 @@ class _StaffListComponentState extends State<StaffListComponent> {
 
 class StaffListItem extends StatelessWidget {
   var staff;
+
   StaffListItem(staff) {
     this.staff = staff;
   }
+
   @override
   Widget build(BuildContext context) {
     var info = staff[Staff.prefectures.castToString()];
+
     if (staff[Staff.Terakoya.castToString()] != '') {
       info += ' / ' + staff[Staff.Terakoya.castToString()];
     }

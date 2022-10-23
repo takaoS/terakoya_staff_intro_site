@@ -8,7 +8,6 @@ class StaffSearchComponent extends StatefulWidget {
 
   StaffSearchComponent(searchWords) {
     this.searchWords = searchWords;
-    print(this.searchWords); // for debug
   }
 
   @override
@@ -19,10 +18,12 @@ class _StaffSearchComponentState extends State<StaffSearchComponent> {
   @override
   Widget build(BuildContext context) {
     Query query = FirebaseFirestore.instance.collection('staff');
+
     widget.searchWords.forEach((word) {
       query = query.where(Staff.haystack.castToString() + '.' + word,
           isEqualTo: true);
     });
+
     return StreamBuilder<QuerySnapshot>(
       stream: query.snapshots(),
       builder: (context, snapshot) {
@@ -71,12 +72,15 @@ class _StaffSearchComponentState extends State<StaffSearchComponent> {
 
 class StaffListItem extends StatelessWidget {
   var staff;
+
   StaffListItem(staff) {
     this.staff = staff;
   }
+
   @override
   Widget build(BuildContext context) {
     var info = staff[Staff.prefectures.castToString()];
+
     if (staff[Staff.Terakoya.castToString()] != '') {
       info += ' / ' + staff[Staff.Terakoya.castToString()];
     }
