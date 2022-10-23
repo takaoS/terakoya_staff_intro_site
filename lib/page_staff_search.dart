@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/component_staff_list.dart';
+import 'package:terakoya_staff_intro_site/component_staff_search.dart';
 
 class StaffSearchPage extends StatefulWidget {
   @override
@@ -26,8 +27,7 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              //child: StaffSearchComponent(sort, isDescending, searchWords),
-              child: StaffListComponent('prefectures', true),
+              child: StaffSearchComponent(searchWords),
             )
           ],
         ),
@@ -60,7 +60,6 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
       onChanged: (text) {
         setState(() {
           searchWords = convertTextForBigram(text);
-          print(searchWords);
         });
       },
     );
