@@ -27,7 +27,7 @@ class _StaffListComponentState extends State<StaffListComponent> {
       stream: query.snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return Text('something went wrong');
+          return const Text('something went wrong');
         } else if (snapshot.hasData || snapshot.data != null) {
           return CustomScrollView(
             slivers: [
@@ -63,7 +63,7 @@ class _StaffListComponentState extends State<StaffListComponent> {
             ],
           );
         }
-        return Text("Loading ...");
+        return const Text("Loading ...");
       },
     );
   }

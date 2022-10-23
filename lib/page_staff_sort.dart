@@ -22,10 +22,10 @@ class _StaffListPageState extends State<StaffListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('学生スタッフ 一覧'),
+        title: const Text('学生スタッフ 一覧'),
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return StaffSearchPage();
@@ -41,7 +41,7 @@ class _StaffListPageState extends State<StaffListPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('並び替え：'),
+                const Text('並び替え：'),
                 ElevatedButton(
                   child: Text(Staff.prefectures.staffColName),
                   onPressed: () => setState(() {
@@ -78,13 +78,13 @@ class _StaffListPageState extends State<StaffListPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  child: Text('昇順'),
+                  child: const Text('昇順'),
                   onPressed: () => setState(() {
                     isDescending = false;
                   }),
                 ),
                 ElevatedButton(
-                  child: Text('降順'),
+                  child: const Text('降順'),
                   onPressed: () => setState(() {
                     isDescending = true;
                   }),
