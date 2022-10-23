@@ -37,7 +37,7 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
   Widget searchTextField() {
     return TextField(
       autofocus: true,
-      cursorColor: Colors.green,
+      cursorColor: Colors.white,
       style: const TextStyle(
         color: Colors.white,
         fontSize: 16,
@@ -45,14 +45,14 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
       textInputAction: TextInputAction.search,
       decoration: const InputDecoration(
         enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.red),
+          borderSide: BorderSide(color: Colors.white70),
         ),
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.yellow),
+          borderSide: BorderSide(color: Colors.white70),
         ),
         hintText: 'ex1. 寺子屋あすは , ex2. 神奈川県',
         hintStyle: TextStyle(
-          color: Colors.orange,
+          color: Colors.white70,
           fontSize: 16,
         ),
       ),
