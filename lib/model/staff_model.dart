@@ -7,6 +7,7 @@ enum Staff {
   schoolYear,
   joinDate,
   imgUrl,
+  haystack,
 }
 
 extension StaffExtention on Staff {

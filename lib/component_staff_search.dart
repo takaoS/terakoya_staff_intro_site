@@ -3,24 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
-class StaffListComponent extends StatefulWidget {
-  var sort;
-  var isDescending;
-  StaffListComponent(sort, isDescending) {
-    this.sort = sort;
-    this.isDescending = isDescending;
+class StaffSearchComponent extends StatefulWidget {
+  var searchWords;
+
+  StaffSearchComponent(searchWords) {
+    this.searchWords = searchWords;
+    print(this.searchWords); // for debug
   }
+
   @override
-  _StaffListComponentState createState() => _StaffListComponentState();
+  _StaffSearchComponentState createState() => _StaffSearchComponentState();
 }
 
-class _StaffListComponentState extends State<StaffListComponent> {
+class _StaffSearchComponentState extends State<StaffSearchComponent> {
   @override
   Widget build(BuildContext context) {
-    Query query = FirebaseFirestore.instance
-        .collection('staff')
-        .orderBy(widget.sort, descending: widget.isDescending);
-
+    Query query = FirebaseFirestore.instance.collection('staff');
+    widget.searchWords.forEach((word) {
+      query = query.where(Staff.haystack.castToString() + '.' + word,
+          isEqualTo: true);
+    });
     return StreamBuilder<QuerySnapshot>(
       stream: query.snapshots(),
       builder: (context, snapshot) {
