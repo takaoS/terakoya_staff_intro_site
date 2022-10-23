@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:terakoya_staff_intro_site/component_staff_list_item.dart';
+import 'package:terakoya_staff_intro_site/component_staff_item.dart';
 import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:terakoya_staff_intro_site/component_staff_list.dart';
+import 'package:terakoya_staff_intro_site/component_staff_sort.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 import 'package:terakoya_staff_intro_site/page_staff_search.dart';
 
