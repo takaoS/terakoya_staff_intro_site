@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/component_staff_list.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
+import 'package:terakoya_staff_intro_site/page_staff_search.dart';
 
 class StaffListPage extends StatefulWidget {
   @override
@@ -25,7 +26,11 @@ class _StaffListPageState extends State<StaffListPage> {
         actions: [
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return StaffSearchPage();
+              }));
+            },
           ),
         ],
       ),
