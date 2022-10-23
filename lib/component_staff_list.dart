@@ -17,14 +17,15 @@ class StaffListComponent extends StatefulWidget {
 class _StaffListComponentState extends State<StaffListComponent> {
   @override
   Widget build(BuildContext context) {
+    Query query = FirebaseFirestore.instance
+        .collection('staff')
+        .orderBy(widget.sort, descending: widget.isDescending);
+
     return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance
-          .collection('staff')
-          .orderBy(widget.sort, descending: widget.isDescending)
-          .snapshots(),
+      stream: query.snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return Text(('something went wrong'));
+          return Text('something went wrong');
         } else if (snapshot.hasData || snapshot.data != null) {
           return CustomScrollView(
             slivers: [
