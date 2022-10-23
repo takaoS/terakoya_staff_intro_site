@@ -21,15 +21,12 @@ class _StaffDetailComponentState extends State<StaffDetailComponent> {
             ' (' +
             widget.staff[Staff.fullName_katakana.castToString()] +
             ')'),
-        Text(Staff.prefectures.staffColName +
-            ': ' +
-            widget.staff[Staff.prefectures.castToString()]),
-        Text(Staff.Terakoya.staffColName +
-            ': ' +
-            widget.staff[Staff.Terakoya.castToString()]),
-        Text(Staff.SkillTeam.staffColName +
-            ': ' +
-            widget.staff[Staff.SkillTeam.castToString()]),
+        Text(
+            '${Staff.prefectures.staffColName}: ${widget.staff[Staff.prefectures.castToString()]}'),
+        Text(
+            '${Staff.Terakoya.staffColName}: ${widget.staff[Staff.Terakoya.castToString()]}'),
+        Text(
+            '${Staff.SkillTeam.staffColName}: ${widget.staff[Staff.SkillTeam.castToString()]}'),
       ],
     );
   }
