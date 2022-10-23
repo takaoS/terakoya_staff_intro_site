@@ -14,7 +14,7 @@ class _StaffListPageState extends State<StaffListPage> {
 
   @override
   void initState() {
-    sort = Staff.prefectures.castToString();
+    sort = Staff.prefectures.asString();
     super.initState();
   }
 
@@ -51,19 +51,19 @@ class _StaffListPageState extends State<StaffListPage> {
                         ElevatedButton(
                           child: Text(Staff.prefectures.staffColName),
                           onPressed: () => setState(() {
-                            sort = Staff.prefectures.castToString();
+                            sort = Staff.prefectures.asString();
                           }),
                         ),
                         ElevatedButton(
                           child: Text(Staff.schoolYear.staffColName),
                           onPressed: () => setState(() {
-                            sort = Staff.schoolYear.castToString();
+                            sort = Staff.schoolYear.asString();
                           }),
                         ),
                         ElevatedButton(
                           child: Text(Staff.joinDate.staffColName),
                           onPressed: () => setState(() {
-                            sort = Staff.joinDate.castToString();
+                            sort = Staff.joinDate.asString();
                           }),
                         ),
                       ],
@@ -74,13 +74,13 @@ class _StaffListPageState extends State<StaffListPage> {
                         ElevatedButton(
                           child: Text(Staff.Terakoya.staffColName),
                           onPressed: () => setState(() {
-                            sort = Staff.Terakoya.castToString();
+                            sort = Staff.Terakoya.asString();
                           }),
                         ),
                         ElevatedButton(
                           child: Text(Staff.SkillTeam.staffColName),
                           onPressed: () => setState(() {
-                            sort = Staff.SkillTeam.castToString();
+                            sort = Staff.SkillTeam.asString();
                           }),
                         ),
                       ],

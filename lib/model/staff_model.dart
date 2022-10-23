@@ -23,5 +23,5 @@ extension StaffExtention on Staff {
 
   String get staffColName => staffColNames[this]!;
 
-  String castToString() => this.toString().split('.').last;
+  String asString() => this.toString().split('.').last;
 }

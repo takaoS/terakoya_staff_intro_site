@@ -30,7 +30,7 @@ class _StaffDetailPageState extends State<StaffDetailPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.staff[Staff.fullName.castToString()] + ' のプロフィール'),
+        title: Text(widget.staff[Staff.fullName.asString()] + ' のプロフィール'),
       ),
       body: Center(
         child: Container(

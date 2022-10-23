@@ -10,20 +10,20 @@ class StaffListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var info = staff[Staff.prefectures.castToString()];
+    var info = staff[Staff.prefectures.asString()];
 
-    if (staff[Staff.Terakoya.castToString()] != '') {
-      info += ' / ' + staff[Staff.Terakoya.castToString()];
+    if (staff[Staff.Terakoya.asString()] != '') {
+      info += ' / ' + staff[Staff.Terakoya.asString()];
     }
-    if (staff[Staff.SkillTeam.castToString()] != '') {
-      info += ' / ' + staff[Staff.SkillTeam.castToString()];
+    if (staff[Staff.SkillTeam.asString()] != '') {
+      info += ' / ' + staff[Staff.SkillTeam.asString()];
     }
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.network(staff[Staff.imgUrl.castToString()]),
-        Text(staff[Staff.fullName.castToString()]),
+        Image.network(staff[Staff.imgUrl.asString()]),
+        Text(staff[Staff.fullName.asString()]),
         Text(info),
       ],
     );
