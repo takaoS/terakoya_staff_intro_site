@@ -60,3 +60,14 @@ Widget searchTextField() {
     ),
   );
 }
+
+List convertTextForBigram(text) {
+  var words = [];
+
+  for (var i = 0; i < text.length - 1; i++) {
+    var word = text[i] + text[i + 1];
+    words.add(word);
+  }
+
+  return words;
+}
