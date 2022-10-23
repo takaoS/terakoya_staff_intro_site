@@ -20,10 +20,10 @@ class _StaffSearchComponentState extends State<StaffSearchComponent> {
   Widget build(BuildContext context) {
     Query query = FirebaseFirestore.instance.collection('staff');
 
-    widget.searchWords.forEach((word) {
+    for (var word in widget.searchWords) {
       query = query.where(Staff.haystack.castToString() + '.' + word,
           isEqualTo: true);
-    });
+    }
 
     return StreamBuilder<QuerySnapshot>(
       stream: query.snapshots(),
