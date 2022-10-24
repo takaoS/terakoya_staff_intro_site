@@ -31,7 +31,7 @@ class _StaffDetailPageState extends State<StaffDetailPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget._staff[Staff.fullName.asString()] + ' のプロフィール'),
+        title: Text('${widget._staff[Staff.fullName.asString()]} のプロフィール'),
       ),
       body: Center(
         child: Container(
@@ -43,7 +43,7 @@ class _StaffDetailPageState extends State<StaffDetailPage> {
               children: [
                 StaffDetailComponent(widget._staff),
                 TextButton(
-                  child: Text('Back'),
+                  child: const Text('Back'),
                   onPressed: () => Navigator.of(context).pop(),
                 )
               ],

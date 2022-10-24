@@ -13,10 +13,10 @@ class StaffListItem extends StatelessWidget {
     var _info = _staff[Staff.prefectures.asString()];
 
     if (_staff[Staff.Terakoya.asString()] != '') {
-      _info += ' / ' + _staff[Staff.Terakoya.asString()];
+      _info += ' / ${_staff[Staff.Terakoya.asString()]}';
     }
     if (_staff[Staff.SkillTeam.asString()] != '') {
-      _info += ' / ' + _staff[Staff.SkillTeam.asString()];
+      _info += ' / ${_staff[Staff.SkillTeam.asString()]}';
     }
 
     return Column(

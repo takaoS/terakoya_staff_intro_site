@@ -19,10 +19,8 @@ class _StaffDetailComponentState extends State<StaffDetailComponent> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.network(widget._staff[Staff.imgUrl.asString()]),
-        Text(widget._staff[Staff.fullName.asString()] +
-            ' (' +
-            widget._staff[Staff.fullName_katakana.asString()] +
-            ')'),
+        Text(
+            '${widget._staff[Staff.fullName.asString()]} (${widget._staff[Staff.fullName_katakana.asString()]})'),
         Text(
             '${Staff.prefectures.staffColName}: ${widget._staff[Staff.prefectures.asString()]}'),
         Text(

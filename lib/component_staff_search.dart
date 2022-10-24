@@ -22,7 +22,7 @@ class _StaffSearchComponentState extends State<StaffSearchComponent> {
 
     for (var word in widget._searchWords) {
       _query =
-          _query.where(Staff.haystack.asString() + '.' + word, isEqualTo: true);
+          _query.where('${Staff.haystack.asString()}.$word', isEqualTo: true);
     }
 
     return StreamBuilder<QuerySnapshot>(
