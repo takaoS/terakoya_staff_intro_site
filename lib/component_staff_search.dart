@@ -5,10 +5,10 @@ import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffSearchComponent extends StatefulWidget {
-  var searchWords;
+  var _searchWords;
 
   StaffSearchComponent(searchWords) {
-    this.searchWords = searchWords;
+    _searchWords = searchWords;
   }
 
   @override
@@ -18,15 +18,15 @@ class StaffSearchComponent extends StatefulWidget {
 class _StaffSearchComponentState extends State<StaffSearchComponent> {
   @override
   Widget build(BuildContext context) {
-    Query query = FirebaseFirestore.instance.collection('staff');
+    Query _query = FirebaseFirestore.instance.collection('staff');
 
-    for (var word in widget.searchWords) {
-      query =
-          query.where(Staff.haystack.asString() + '.' + word, isEqualTo: true);
+    for (var word in widget._searchWords) {
+      _query =
+          _query.where(Staff.haystack.asString() + '.' + word, isEqualTo: true);
     }
 
     return StreamBuilder<QuerySnapshot>(
-      stream: query.snapshots(),
+      stream: _query.snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return const Text('不具合が発生しました…サポートロボにお問い合わせください (error code: 002)');
@@ -42,19 +42,19 @@ class _StaffSearchComponentState extends State<StaffSearchComponent> {
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
-                    final staff = snapshot.data!.docs[index];
+                    final _staff = snapshot.data!.docs[index];
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return StaffDetailPage(staff);
+                          return StaffDetailPage(_staff);
                         }));
                       },
                       child: Container(
                         alignment: Alignment.center,
                         color: Colors.teal[100 * (index % 9)],
                         child: SingleChildScrollView(
-                          child: StaffListItem(staff),
+                          child: StaffListItem(_staff),
                         ),
                       ),
                     );

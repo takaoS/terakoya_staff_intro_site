@@ -3,9 +3,10 @@ import 'package:terakoya_staff_intro_site/component_staff_detail.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffDetailPage extends StatefulWidget {
-  var staff;
+  var _staff;
+
   StaffDetailPage(staff) {
-    this.staff = staff;
+    _staff = staff;
   }
   @override
   _StaffDetailPageState createState() => _StaffDetailPageState();
@@ -14,23 +15,23 @@ class StaffDetailPage extends StatefulWidget {
 class _StaffDetailPageState extends State<StaffDetailPage> {
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    final Size _size = MediaQuery.of(context).size;
     double width;
-    double height = size.height - AppBar().preferredSize.height;
-    double aspectRatio = size.aspectRatio;
+    double height = _size.height - AppBar().preferredSize.height;
+    double aspectRatio = _size.aspectRatio;
     if (aspectRatio < 0.5) {
-      width = size.width;
+      width = _size.width;
     } else if (aspectRatio < 0.65) {
-      width = size.width * 0.9;
+      width = _size.width * 0.9;
     } else if (aspectRatio >= 0.65) {
-      width = size.width * 0.8;
+      width = _size.width * 0.8;
     } else {
-      width = size.width;
+      width = _size.width;
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.staff[Staff.fullName.asString()] + ' のプロフィール'),
+        title: Text(widget._staff[Staff.fullName.asString()] + ' のプロフィール'),
       ),
       body: Center(
         child: Container(
@@ -40,7 +41,7 @@ class _StaffDetailPageState extends State<StaffDetailPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                StaffDetailComponent(widget.staff),
+                StaffDetailComponent(widget._staff),
                 TextButton(
                   child: Text('Back'),
                   onPressed: () => Navigator.of(context).pop(),

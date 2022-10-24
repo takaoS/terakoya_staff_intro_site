@@ -7,11 +7,11 @@ class StaffSearchPage extends StatefulWidget {
 }
 
 class _StaffSearchPageState extends State<StaffSearchPage> {
-  var searchWords;
+  var _searchWords;
 
   @override
   void initState() {
-    searchWords = [];
+    _searchWords = [];
     super.initState();
   }
 
@@ -19,14 +19,14 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: searchTextField(),
+        title: _searchTextField(),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: StaffSearchComponent(searchWords),
+              child: StaffSearchComponent(_searchWords),
             )
           ],
         ),
@@ -34,7 +34,7 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
     );
   }
 
-  Widget searchTextField() {
+  Widget _searchTextField() {
     return TextField(
       autofocus: true,
       cursorColor: Colors.white,
@@ -58,20 +58,20 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
       ),
       onChanged: (text) {
         setState(() {
-          searchWords = convertTextForBigram(text);
+          _searchWords = _convertTextForBigram(text);
         });
       },
     );
   }
 }
 
-List convertTextForBigram(text) {
-  var words = [];
+List _convertTextForBigram(text) {
+  var _words = [];
 
   for (var i = 0; i < text.length - 1; i++) {
-    var word = text[i] + text[i + 1];
-    words.add(word);
+    var _word = text[i] + text[i + 1];
+    _words.add(_word);
   }
 
-  return words;
+  return _words;
 }

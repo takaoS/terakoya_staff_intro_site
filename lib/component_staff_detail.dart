@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffDetailComponent extends StatefulWidget {
-  var staff;
+  var _staff;
+
   StaffDetailComponent(staff) {
-    this.staff = staff;
+    _staff = staff;
   }
+
   @override
   _StaffDetailComponentState createState() => _StaffDetailComponentState();
 }
@@ -16,17 +18,17 @@ class _StaffDetailComponentState extends State<StaffDetailComponent> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.network(widget.staff[Staff.imgUrl.asString()]),
-        Text(widget.staff[Staff.fullName.asString()] +
+        Image.network(widget._staff[Staff.imgUrl.asString()]),
+        Text(widget._staff[Staff.fullName.asString()] +
             ' (' +
-            widget.staff[Staff.fullName_katakana.asString()] +
+            widget._staff[Staff.fullName_katakana.asString()] +
             ')'),
         Text(
-            '${Staff.prefectures.staffColName}: ${widget.staff[Staff.prefectures.asString()]}'),
+            '${Staff.prefectures.staffColName}: ${widget._staff[Staff.prefectures.asString()]}'),
         Text(
-            '${Staff.Terakoya.staffColName}: ${widget.staff[Staff.Terakoya.asString()]}'),
+            '${Staff.Terakoya.staffColName}: ${widget._staff[Staff.Terakoya.asString()]}'),
         Text(
-            '${Staff.SkillTeam.staffColName}: ${widget.staff[Staff.SkillTeam.asString()]}'),
+            '${Staff.SkillTeam.staffColName}: ${widget._staff[Staff.SkillTeam.asString()]}'),
       ],
     );
   }

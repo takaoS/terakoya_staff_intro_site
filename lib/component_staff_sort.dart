@@ -4,12 +4,12 @@ import 'package:terakoya_staff_intro_site/component_staff_item.dart';
 import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
 
 class StaffListComponent extends StatefulWidget {
-  var sort;
-  var isDescending;
+  var _sort;
+  var _isDescending;
 
   StaffListComponent(sort, isDescending) {
-    this.sort = sort;
-    this.isDescending = isDescending;
+    _sort = sort;
+    _isDescending = isDescending;
   }
 
   @override
@@ -19,12 +19,12 @@ class StaffListComponent extends StatefulWidget {
 class _StaffListComponentState extends State<StaffListComponent> {
   @override
   Widget build(BuildContext context) {
-    Query query = FirebaseFirestore.instance
+    Query _query = FirebaseFirestore.instance
         .collection('staff')
-        .orderBy(widget.sort, descending: widget.isDescending);
+        .orderBy(widget._sort, descending: widget._isDescending);
 
     return StreamBuilder<QuerySnapshot>(
-      stream: query.snapshots(),
+      stream: _query.snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return const Text('不具合が発生しました…サポートロボにお問い合わせください (error code: 001)');
@@ -40,19 +40,19 @@ class _StaffListComponentState extends State<StaffListComponent> {
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
-                    final staff = snapshot.data!.docs[index];
+                    final _staff = snapshot.data!.docs[index];
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return StaffDetailPage(staff);
+                          return StaffDetailPage(_staff);
                         }));
                       },
                       child: Container(
                         alignment: Alignment.center,
                         color: Colors.teal[100 * (index % 9)],
                         child: SingleChildScrollView(
-                          child: StaffListItem(staff),
+                          child: StaffListItem(_staff),
                         ),
                       ),
                     );

@@ -9,12 +9,12 @@ class StaffListPage extends StatefulWidget {
 }
 
 class _StaffListPageState extends State<StaffListPage> {
-  var sort;
-  bool isDescending = false;
+  var _sort;
+  bool _isDescending = false;
 
   @override
   void initState() {
-    sort = Staff.prefectures.asString();
+    _sort = Staff.prefectures.asString();
     super.initState();
   }
 
@@ -51,19 +51,19 @@ class _StaffListPageState extends State<StaffListPage> {
                         ElevatedButton(
                           child: Text(Staff.prefectures.staffColName),
                           onPressed: () => setState(() {
-                            sort = Staff.prefectures.asString();
+                            _sort = Staff.prefectures.asString();
                           }),
                         ),
                         ElevatedButton(
                           child: Text(Staff.schoolYear.staffColName),
                           onPressed: () => setState(() {
-                            sort = Staff.schoolYear.asString();
+                            _sort = Staff.schoolYear.asString();
                           }),
                         ),
                         ElevatedButton(
                           child: Text(Staff.joinDate.staffColName),
                           onPressed: () => setState(() {
-                            sort = Staff.joinDate.asString();
+                            _sort = Staff.joinDate.asString();
                           }),
                         ),
                       ],
@@ -74,13 +74,13 @@ class _StaffListPageState extends State<StaffListPage> {
                         ElevatedButton(
                           child: Text(Staff.Terakoya.staffColName),
                           onPressed: () => setState(() {
-                            sort = Staff.Terakoya.asString();
+                            _sort = Staff.Terakoya.asString();
                           }),
                         ),
                         ElevatedButton(
                           child: Text(Staff.SkillTeam.staffColName),
                           onPressed: () => setState(() {
-                            sort = Staff.SkillTeam.asString();
+                            _sort = Staff.SkillTeam.asString();
                           }),
                         ),
                       ],
@@ -96,19 +96,19 @@ class _StaffListPageState extends State<StaffListPage> {
                 ElevatedButton(
                   child: const Text('昇順'),
                   onPressed: () => setState(() {
-                    isDescending = false;
+                    _isDescending = false;
                   }),
                 ),
                 ElevatedButton(
                   child: const Text('降順'),
                   onPressed: () => setState(() {
-                    isDescending = true;
+                    _isDescending = true;
                   }),
                 ),
               ],
             ),
             Expanded(
-              child: StaffListComponent(sort, isDescending),
+              child: StaffListComponent(_sort, _isDescending),
             )
           ],
         ),

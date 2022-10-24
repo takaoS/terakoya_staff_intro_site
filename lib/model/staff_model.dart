@@ -11,7 +11,7 @@ enum Staff {
 }
 
 extension StaffExtention on Staff {
-  static final staffColNames = {
+  static final _staffColNames = {
     Staff.SkillTeam: 'スキルチーム',
     Staff.Terakoya: '寺子屋',
     Staff.prefectures: '都道府県',
@@ -21,7 +21,7 @@ extension StaffExtention on Staff {
     Staff.joinDate: '加入日',
   };
 
-  String get staffColName => staffColNames[this]!;
+  String get staffColName => _staffColNames[this]!;
 
   String asString() => this.toString().split('.').last;
 }
