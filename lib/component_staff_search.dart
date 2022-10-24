@@ -65,7 +65,7 @@ class _StaffSearchComponentState extends State<StaffSearchComponent> {
             ],
           );
         }
-        return const Text("Loading ...");
+        return const CircularProgressIndicator();
       },
     );
   }

@@ -63,7 +63,7 @@ class _StaffListComponentState extends State<StaffListComponent> {
             ],
           );
         }
-        return const Text("Loading ...");
+        return const CircularProgressIndicator();
       },
     );
   }
