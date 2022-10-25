@@ -9,14 +9,8 @@ class StaffListPage extends StatefulWidget {
 }
 
 class _StaffListPageState extends State<StaffListPage> {
-  var _sort;
+  var _sort = Staff.prefectures.asString();
   bool _isDescending = false;
-
-  @override
-  void initState() {
-    _sort = Staff.prefectures.asString();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

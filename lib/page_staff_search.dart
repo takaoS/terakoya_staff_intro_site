@@ -7,13 +7,7 @@ class StaffSearchPage extends StatefulWidget {
 }
 
 class _StaffSearchPageState extends State<StaffSearchPage> {
-  var _searchWords;
-
-  @override
-  void initState() {
-    _searchWords = [];
-    super.initState();
-  }
+  var _searchWords = [];
 
   @override
   Widget build(BuildContext context) {
