@@ -19,7 +19,10 @@ class StaffListItem extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.network(_staff[Staff.imgUrl.asString()]),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Image.network(_staff[Staff.imgUrl.asString()]),
+        ),
         Text(_staff[Staff.fullName.asString()]),
         Text(info),
       ],

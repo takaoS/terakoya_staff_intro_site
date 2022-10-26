@@ -15,7 +15,9 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
       appBar: AppBar(
         title: _searchTextField(),
       ),
-      body: Center(
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

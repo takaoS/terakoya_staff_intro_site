@@ -21,7 +21,7 @@ class _StaffListComponentState extends State<StaffListComponent> {
             maxCrossAxisExtent: 200.0,
             mainAxisSpacing: 10.0,
             crossAxisSpacing: 10.0,
-            childAspectRatio: 0.8,
+            childAspectRatio: 0.7,
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
@@ -34,8 +34,9 @@ class _StaffListComponentState extends State<StaffListComponent> {
                   }));
                 },
                 child: Container(
-                  alignment: Alignment.center,
-                  color: Colors.teal[100 * (index % 9)],
+                  padding: const EdgeInsets.all(5.0),
+                  alignment: Alignment.topCenter,
+                  color: Colors.blueGrey[50],
                   child: SingleChildScrollView(
                     child: StaffListItem(staff),
                   ),
