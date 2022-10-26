@@ -9,7 +9,15 @@ class StaffListPage extends StatefulWidget {
 }
 
 class _StaffListPageState extends State<StaffListPage> {
-  var _sort = Staff.prefectures.asString();
+  final List<Staff> _menuList = [
+    Staff.fullName_katakana,
+    Staff.prefectures,
+    Staff.Terakoya,
+    Staff.SkillTeam,
+    Staff.schoolYear,
+    Staff.joinDate,
+  ];
+  String _sort = Staff.fullName_katakana.asString();
   bool _isDescending = false;
 
   @override
@@ -36,69 +44,30 @@ class _StaffListPageState extends State<StaffListPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Icon(Icons.sort_by_alpha),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          child: Text(Staff.prefectures.staffColName),
-                          onPressed: () => setState(() {
-                            _sort = Staff.prefectures.asString();
-                          }),
-                        ),
-                        ElevatedButton(
-                          child: Text(Staff.schoolYear.staffColName),
-                          onPressed: () => setState(() {
-                            _sort = Staff.schoolYear.asString();
-                          }),
-                        ),
-                        ElevatedButton(
-                          child: Text(Staff.joinDate.staffColName),
-                          onPressed: () => setState(() {
-                            _sort = Staff.joinDate.asString();
-                          }),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          child: Text(Staff.Terakoya.staffColName),
-                          onPressed: () => setState(() {
-                            _sort = Staff.Terakoya.asString();
-                          }),
-                        ),
-                        ElevatedButton(
-                          child: Text(Staff.SkillTeam.staffColName),
-                          onPressed: () => setState(() {
-                            _sort = Staff.SkillTeam.asString();
-                          }),
-                        ),
-                      ],
-                    )
-                  ],
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.compare_arrows),
-                ElevatedButton(
-                  child: const Text('昇順'),
-                  onPressed: () => setState(() {
-                    _isDescending = false;
+                // Icon(Icons.compare_arrows),
+                DropdownButton(
+                  value: _sort,
+                  items: _menuList.map((Staff menu) {
+                    return DropdownMenuItem(
+                        value: menu.asString(), child: Text(menu.asString()));
+                  }).toList(),
+                  onChanged: ((value) {
+                    setState(() {
+                      _sort = value!;
+                    });
                   }),
                 ),
-                ElevatedButton(
-                  child: const Text('降順'),
-                  onPressed: () => setState(() {
-                    _isDescending = true;
-                  }),
-                ),
+                DropdownButton(
+                    value: _isDescending,
+                    items: const [
+                      DropdownMenuItem(value: false, child: Text('昇順')),
+                      DropdownMenuItem(value: true, child: Text(('降順'))),
+                    ],
+                    onChanged: ((value) {
+                      setState(() {
+                        _isDescending = value!;
+                      });
+                    })),
               ],
             ),
             Expanded(
