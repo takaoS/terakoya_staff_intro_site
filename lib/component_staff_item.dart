@@ -3,10 +3,7 @@ import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffListItem extends StatelessWidget {
   var _staff;
-
-  StaffListItem(staff) {
-    _staff = staff;
-  }
+  StaffListItem(this._staff);
 
   @override
   Widget build(BuildContext context) {

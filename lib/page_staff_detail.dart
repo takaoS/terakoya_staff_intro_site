@@ -4,10 +4,8 @@ import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffDetailPage extends StatefulWidget {
   var _staff;
+  StaffDetailPage(this._staff);
 
-  StaffDetailPage(staff) {
-    _staff = staff;
-  }
   @override
   _StaffDetailPageState createState() => _StaffDetailPageState();
 }

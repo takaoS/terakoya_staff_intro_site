@@ -6,10 +6,7 @@ import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffSearchComponent extends StatefulWidget {
   var _searchWords;
-
-  StaffSearchComponent(searchWords) {
-    _searchWords = searchWords;
-  }
+  StaffSearchComponent(this._searchWords);
 
   @override
   _StaffSearchComponentState createState() => _StaffSearchComponentState();

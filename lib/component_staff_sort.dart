@@ -6,11 +6,7 @@ import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
 class StaffListComponent extends StatefulWidget {
   var _sort;
   var _isDescending;
-
-  StaffListComponent(sort, isDescending) {
-    _sort = sort;
-    _isDescending = isDescending;
-  }
+  StaffListComponent(this._sort, this._isDescending);
 
   @override
   _StaffListComponentState createState() => _StaffListComponentState();
