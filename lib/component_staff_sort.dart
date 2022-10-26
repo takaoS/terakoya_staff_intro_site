@@ -8,7 +8,7 @@ class StaffSortComponent extends StatefulWidget {
   StaffSortComponent(this._sortValue, this._isDescending);
 
   @override
-  _StaffSortComponentState createState() => _StaffSortComponentState();
+  State<StaffSortComponent> createState() => _StaffSortComponentState();
 }
 
 class _StaffSortComponentState extends State<StaffSortComponent> {

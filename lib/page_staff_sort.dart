@@ -73,7 +73,7 @@ class _StaffListPageState extends State<StaffListPage> {
                       value: _isDescending,
                       items: const [
                         DropdownMenuItem(value: false, child: Text('昇順')),
-                        DropdownMenuItem(value: true, child: Text(('降順'))),
+                        DropdownMenuItem(value: true, child: Text('降順')),
                       ],
                       onChanged: ((value) {
                         setState(() {

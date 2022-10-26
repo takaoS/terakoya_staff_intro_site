@@ -8,7 +8,7 @@ class StaffListComponent extends StatefulWidget {
   StaffListComponent(this._snapshot);
 
   @override
-  _StaffListComponentState createState() => _StaffListComponentState();
+  State<StaffListComponent> createState() => _StaffListComponentState();
 }
 
 class _StaffListComponentState extends State<StaffListComponent> {

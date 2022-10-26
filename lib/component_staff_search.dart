@@ -8,7 +8,7 @@ class StaffSearchComponent extends StatefulWidget {
   StaffSearchComponent(this._searchWords);
 
   @override
-  _StaffSearchComponentState createState() => _StaffSearchComponentState();
+  State<StaffSearchComponent> createState() => _StaffSearchComponentState();
 }
 
 class _StaffSearchComponentState extends State<StaffSearchComponent> {

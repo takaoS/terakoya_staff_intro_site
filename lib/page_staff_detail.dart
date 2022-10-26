@@ -7,7 +7,7 @@ class StaffDetailPage extends StatefulWidget {
   StaffDetailPage(this._staff);
 
   @override
-  _StaffDetailPageState createState() => _StaffDetailPageState();
+  State<StaffDetailPage> createState() => _StaffDetailPageState();
 }
 
 class _StaffDetailPageState extends State<StaffDetailPage> {
