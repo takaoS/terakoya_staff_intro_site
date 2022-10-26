@@ -25,19 +25,19 @@ class _StaffListComponentState extends State<StaffListComponent> {
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              final _staff = widget._snapshot.data!.docs[index];
+              final staff = widget._snapshot.data!.docs[index];
               return GestureDetector(
                 onTap: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return StaffDetailPage(_staff);
+                    return StaffDetailPage(staff);
                   }));
                 },
                 child: Container(
                   alignment: Alignment.center,
                   color: Colors.teal[100 * (index % 9)],
                   child: SingleChildScrollView(
-                    child: StaffListItem(_staff),
+                    child: StaffListItem(staff),
                   ),
                 ),
               );

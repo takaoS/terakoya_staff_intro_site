@@ -14,12 +14,12 @@ class StaffSortComponent extends StatefulWidget {
 class _StaffSortComponentState extends State<StaffSortComponent> {
   @override
   Widget build(BuildContext context) {
-    Query _query = FirebaseFirestore.instance
+    Query query = FirebaseFirestore.instance
         .collection('staff')
         .orderBy(widget._sortValue, descending: widget._isDescending);
 
     return StreamBuilder<QuerySnapshot>(
-      stream: _query.snapshots(),
+      stream: query.snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return const Text('不具合が発生しました…サポートロボにお問い合わせください (error code: 001)');

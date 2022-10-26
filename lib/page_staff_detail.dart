@@ -13,18 +13,18 @@ class StaffDetailPage extends StatefulWidget {
 class _StaffDetailPageState extends State<StaffDetailPage> {
   @override
   Widget build(BuildContext context) {
-    final Size _size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     double width;
-    double height = _size.height - AppBar().preferredSize.height;
-    double aspectRatio = _size.aspectRatio;
+    double height = size.height - AppBar().preferredSize.height;
+    double aspectRatio = size.aspectRatio;
     if (aspectRatio < 0.5) {
-      width = _size.width;
+      width = size.width;
     } else if (aspectRatio < 0.65) {
-      width = _size.width * 0.9;
+      width = size.width * 0.9;
     } else if (aspectRatio >= 0.65) {
-      width = _size.width * 0.8;
+      width = size.width * 0.8;
     } else {
-      width = _size.width;
+      width = size.width;
     }
 
     return Scaffold(

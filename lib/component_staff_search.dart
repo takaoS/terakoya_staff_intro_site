@@ -14,15 +14,15 @@ class StaffSearchComponent extends StatefulWidget {
 class _StaffSearchComponentState extends State<StaffSearchComponent> {
   @override
   Widget build(BuildContext context) {
-    Query _query = FirebaseFirestore.instance.collection('staff');
+    Query query = FirebaseFirestore.instance.collection('staff');
 
     for (String word in widget._searchWords) {
-      _query =
-          _query.where('${Staff.haystack.asString()}.$word', isEqualTo: true);
+      query =
+          query.where('${Staff.haystack.asString()}.$word', isEqualTo: true);
     }
 
     return StreamBuilder<QuerySnapshot>(
-      stream: _query.snapshots(),
+      stream: query.snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return const Text('不具合が発生しました…サポートロボにお問い合わせください (error code: 002)');

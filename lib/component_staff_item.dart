@@ -7,13 +7,13 @@ class StaffListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String _info = _staff[Staff.prefectures.asString()];
+    String info = _staff[Staff.prefectures.asString()];
 
     if (_staff[Staff.Terakoya.asString()] != '') {
-      _info += ' / ${_staff[Staff.Terakoya.asString()]}';
+      info += ' / ${_staff[Staff.Terakoya.asString()]}';
     }
     if (_staff[Staff.SkillTeam.asString()] != '') {
-      _info += ' / ${_staff[Staff.SkillTeam.asString()]}';
+      info += ' / ${_staff[Staff.SkillTeam.asString()]}';
     }
 
     return Column(
@@ -21,7 +21,7 @@ class StaffListItem extends StatelessWidget {
       children: [
         Image.network(_staff[Staff.imgUrl.asString()]),
         Text(_staff[Staff.fullName.asString()]),
-        Text(_info),
+        Text(info),
       ],
     );
   }

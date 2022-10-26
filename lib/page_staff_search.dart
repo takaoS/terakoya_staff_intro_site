@@ -60,12 +60,12 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
 }
 
 List<String> _convertTextForBigram(String text) {
-  List<String> _words = [];
+  List<String> words = [];
 
   for (var i = 0; i < text.length - 1; i++) {
-    var _word = text[i] + text[i + 1];
-    _words.add(_word);
+    var word = text[i] + text[i + 1];
+    words.add(word);
   }
 
-  return _words;
+  return words;
 }
