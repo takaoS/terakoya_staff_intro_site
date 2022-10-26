@@ -34,5 +34,5 @@ extension StaffExtention on Staff {
 
   String get sortValueName => _sortValueNames[this]!;
 
-  String asString() => this.toString().split('.').last;
+  String asString() => toString().split('.').last;
 }
