@@ -7,7 +7,7 @@ class StaffSearchPage extends StatefulWidget {
 }
 
 class _StaffSearchPageState extends State<StaffSearchPage> {
-  var _searchWords = [];
+  List<String> _searchWords = [];
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +59,8 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
   }
 }
 
-List _convertTextForBigram(text) {
-  var _words = [];
+List<String> _convertTextForBigram(String text) {
+  List<String> _words = [];
 
   for (var i = 0; i < text.length - 1; i++) {
     var _word = text[i] + text[i + 1];

@@ -5,7 +5,7 @@ import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffSearchComponent extends StatefulWidget {
-  var _searchWords;
+  List<String> _searchWords;
   StaffSearchComponent(this._searchWords);
 
   @override
@@ -17,7 +17,7 @@ class _StaffSearchComponentState extends State<StaffSearchComponent> {
   Widget build(BuildContext context) {
     Query _query = FirebaseFirestore.instance.collection('staff');
 
-    for (var word in widget._searchWords) {
+    for (String word in widget._searchWords) {
       _query =
           _query.where('${Staff.haystack.asString()}.$word', isEqualTo: true);
     }

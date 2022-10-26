@@ -7,7 +7,7 @@ class StaffListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _info = _staff[Staff.prefectures.asString()];
+    String _info = _staff[Staff.prefectures.asString()];
 
     if (_staff[Staff.Terakoya.asString()] != '') {
       _info += ' / ${_staff[Staff.Terakoya.asString()]}';
