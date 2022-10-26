@@ -15,15 +15,40 @@ class _StaffDetailComponentState extends State<StaffDetailComponent> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.network(widget._staff[Staff.imgUrl.asString()]),
-        Text(
-            '${widget._staff[Staff.fullName.asString()]} (${widget._staff[Staff.fullName_katakana.asString()]})'),
-        Text(
-            '${Staff.prefectures.staffColName}: ${widget._staff[Staff.prefectures.asString()]}'),
-        Text(
-            '${Staff.Terakoya.staffColName}: ${widget._staff[Staff.Terakoya.asString()]}'),
-        Text(
-            '${Staff.SkillTeam.staffColName}: ${widget._staff[Staff.SkillTeam.asString()]}'),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          width: 300,
+          height: 300,
+          child: Image.network(widget._staff[Staff.imgUrl.asString()]),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          child: Text(
+              '${widget._staff[Staff.fullName.asString()]} (${widget._staff[Staff.fullName_katakana.asString()]})'),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.prefectures.staffColName}：${widget._staff[Staff.prefectures.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.Terakoya.staffColName}：${widget._staff[Staff.Terakoya.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.SkillTeam.staffColName}：${widget._staff[Staff.SkillTeam.asString()]}'),
+            ),
+          ],
+        )
       ],
     );
   }
