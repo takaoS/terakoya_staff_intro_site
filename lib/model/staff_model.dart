@@ -11,7 +11,7 @@ enum Staff {
 }
 
 extension StaffExtention on Staff {
-  static final staffColNames = {
+  static final _staffColNames = {
     Staff.SkillTeam: 'スキルチーム',
     Staff.Terakoya: '寺子屋',
     Staff.prefectures: '都道府県',
@@ -21,10 +21,18 @@ extension StaffExtention on Staff {
     Staff.joinDate: '加入日',
   };
 
-  String get staffColName => staffColNames[this]!;
+  String get staffColName => _staffColNames[this]!;
 
-  // enum型 → String型 に変換
-  // toString() だけだと Order.Terakoya のようになるので、
-  // .split('.').last で Terakoya だけ取り出す
-  String castToString() => this.toString().split('.').last;
+  static final _sortValueNames = {
+    Staff.SkillTeam: 'スキルチーム順',
+    Staff.Terakoya: '寺子屋順',
+    Staff.prefectures: '都道府県順',
+    Staff.fullName_katakana: '名前順',
+    Staff.schoolYear: '学年順',
+    Staff.joinDate: '加入日順',
+  };
+
+  String get sortValueName => _sortValueNames[this]!;
+
+  String asString() => toString().split('.').last;
 }

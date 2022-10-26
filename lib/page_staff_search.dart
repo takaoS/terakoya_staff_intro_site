@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:terakoya_staff_intro_site/component_staff_list.dart';
 import 'package:terakoya_staff_intro_site/component_staff_search.dart';
 
 class StaffSearchPage extends StatefulWidget {
@@ -8,26 +7,22 @@ class StaffSearchPage extends StatefulWidget {
 }
 
 class _StaffSearchPageState extends State<StaffSearchPage> {
-  var searchWords;
-
-  @override
-  void initState() {
-    searchWords = [];
-    super.initState();
-  }
+  List<String> _searchWords = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: searchTextField(),
+        title: _searchTextField(),
       ),
-      body: Center(
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: StaffSearchComponent(searchWords),
+              child: StaffSearchComponent(_searchWords),
             )
           ],
         ),
@@ -35,10 +30,10 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
     );
   }
 
-  Widget searchTextField() {
+  Widget _searchTextField() {
     return TextField(
       autofocus: true,
-      cursorColor: Colors.green,
+      cursorColor: Colors.white,
       style: const TextStyle(
         color: Colors.white,
         fontSize: 16,
@@ -46,28 +41,28 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
       textInputAction: TextInputAction.search,
       decoration: const InputDecoration(
         enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.red),
+          borderSide: BorderSide(color: Colors.white70),
         ),
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.yellow),
+          borderSide: BorderSide(color: Colors.white70),
         ),
         hintText: 'ex1. 寺子屋あすは , ex2. 神奈川県',
         hintStyle: TextStyle(
-          color: Colors.orange,
+          color: Colors.white70,
           fontSize: 16,
         ),
       ),
       onChanged: (text) {
         setState(() {
-          searchWords = convertTextForBigram(text);
+          _searchWords = _convertTextForBigram(text);
         });
       },
     );
   }
 }
 
-List convertTextForBigram(text) {
-  var words = [];
+List<String> _convertTextForBigram(String text) {
+  List<String> words = [];
 
   for (var i = 0; i < text.length - 1; i++) {
     var word = text[i] + text[i + 1];

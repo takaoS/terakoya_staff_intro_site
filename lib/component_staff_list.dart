@@ -1,93 +1,51 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:terakoya_staff_intro_site/component_staff_item.dart';
 import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
-import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffListComponent extends StatefulWidget {
-  var sort;
-  var isDescending;
-  StaffListComponent(sort, isDescending) {
-    this.sort = sort;
-    this.isDescending = isDescending;
-  }
+  AsyncSnapshot<QuerySnapshot<Object?>> _snapshot;
+  StaffListComponent(this._snapshot);
+
   @override
-  _StaffListComponentState createState() => _StaffListComponentState();
+  State<StaffListComponent> createState() => _StaffListComponentState();
 }
 
 class _StaffListComponentState extends State<StaffListComponent> {
   @override
   Widget build(BuildContext context) {
-    Query query = FirebaseFirestore.instance
-        .collection('staff')
-        .orderBy(widget.sort, descending: widget.isDescending);
-
-    return StreamBuilder<QuerySnapshot>(
-      stream: query.snapshots(),
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          return Text('something went wrong');
-        } else if (snapshot.hasData || snapshot.data != null) {
-          return CustomScrollView(
-            slivers: [
-              SliverGrid(
-                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 200.0,
-                  mainAxisSpacing: 10.0,
-                  crossAxisSpacing: 10.0,
-                  childAspectRatio: 0.8,
+    return CustomScrollView(
+      slivers: [
+        SliverGrid(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200.0,
+            mainAxisSpacing: 10.0,
+            crossAxisSpacing: 10.0,
+            childAspectRatio: 0.7,
+          ),
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              final staff = widget._snapshot.data!.docs[index];
+              return GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return StaffDetailPage(staff);
+                  }));
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(5.0),
+                  alignment: Alignment.topCenter,
+                  color: Colors.blueGrey[50],
+                  child: SingleChildScrollView(
+                    child: StaffListItem(staff),
+                  ),
                 ),
-                delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                    final staff = snapshot.data!.docs[index];
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return StaffDetailPage(staff);
-                        }));
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        color: Colors.teal[100 * (index % 9)],
-                        child: SingleChildScrollView(
-                          child: StaffListItem(staff),
-                        ),
-                      ),
-                    );
-                  },
-                  childCount: snapshot.data!.docs.length,
-                ),
-              )
-            ],
-          );
-        }
-        return Text("Loading ...");
-      },
-    );
-  }
-}
-
-class StaffListItem extends StatelessWidget {
-  var staff;
-  StaffListItem(staff) {
-    this.staff = staff;
-  }
-  @override
-  Widget build(BuildContext context) {
-    var info = staff[Staff.prefectures.castToString()];
-    if (staff[Staff.Terakoya.castToString()] != '') {
-      info += ' / ' + staff[Staff.Terakoya.castToString()];
-    }
-    if (staff[Staff.SkillTeam.castToString()] != '') {
-      info += ' / ' + staff[Staff.SkillTeam.castToString()];
-    }
-
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Image.network(staff[Staff.imgUrl.castToString()]),
-        Text(staff[Staff.fullName.castToString()]),
-        Text(info),
+              );
+            },
+            childCount: widget._snapshot.data!.docs.length,
+          ),
+        )
       ],
     );
   }

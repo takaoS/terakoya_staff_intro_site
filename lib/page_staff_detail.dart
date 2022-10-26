@@ -3,12 +3,11 @@ import 'package:terakoya_staff_intro_site/component_staff_detail.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffDetailPage extends StatefulWidget {
-  var staff;
-  StaffDetailPage(staff) {
-    this.staff = staff;
-  }
+  var _staff;
+  StaffDetailPage(this._staff);
+
   @override
-  _StaffDetailPageState createState() => _StaffDetailPageState();
+  State<StaffDetailPage> createState() => _StaffDetailPageState();
 }
 
 class _StaffDetailPageState extends State<StaffDetailPage> {
@@ -30,7 +29,7 @@ class _StaffDetailPageState extends State<StaffDetailPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.staff[Staff.fullName.castToString()] + ' のプロフィール'),
+        title: Text('${widget._staff[Staff.fullName.asString()]} のプロフィール'),
       ),
       body: Center(
         child: Container(
@@ -40,9 +39,9 @@ class _StaffDetailPageState extends State<StaffDetailPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                StaffDetailComponent(widget.staff),
+                StaffDetailComponent(widget._staff),
                 TextButton(
-                  child: Text('Back'),
+                  child: const Text('Back'),
                   onPressed: () => Navigator.of(context).pop(),
                 )
               ],
