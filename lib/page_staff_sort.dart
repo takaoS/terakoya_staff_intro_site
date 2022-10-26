@@ -9,7 +9,7 @@ class StaffListPage extends StatefulWidget {
 }
 
 class _StaffListPageState extends State<StaffListPage> {
-  final List<Staff> _menuList = [
+  final List<Staff> _sortValueList = [
     Staff.fullName_katakana,
     Staff.prefectures,
     Staff.Terakoya,
@@ -17,7 +17,7 @@ class _StaffListPageState extends State<StaffListPage> {
     Staff.schoolYear,
     Staff.joinDate,
   ];
-  String _sort = Staff.fullName_katakana.asString();
+  String _sortValue = Staff.fullName_katakana.asString();
   bool _isDescending = false;
 
   @override
@@ -44,16 +44,16 @@ class _StaffListPageState extends State<StaffListPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Icon(Icons.sort_by_alpha),
-                // Icon(Icons.compare_arrows),
                 DropdownButton(
-                  value: _sort,
-                  items: _menuList.map((Staff menu) {
+                  value: _sortValue,
+                  items: _sortValueList.map((Staff sortValue) {
                     return DropdownMenuItem(
-                        value: menu.asString(), child: Text(menu.asString()));
+                        value: sortValue.asString(),
+                        child: Text(sortValue.asString()));
                   }).toList(),
-                  onChanged: ((value) {
+                  onChanged: ((sortValue) {
                     setState(() {
-                      _sort = value!;
+                      _sortValue = sortValue!;
                     });
                   }),
                 ),
@@ -71,7 +71,7 @@ class _StaffListPageState extends State<StaffListPage> {
               ],
             ),
             Expanded(
-              child: StaffListComponent(_sort, _isDescending),
+              child: StaffListComponent(_sortValue, _isDescending),
             )
           ],
         ),
