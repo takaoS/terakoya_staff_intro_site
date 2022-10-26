@@ -4,9 +4,9 @@ import 'package:terakoya_staff_intro_site/component_staff_item.dart';
 import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
 
 class StaffListComponent extends StatefulWidget {
-  String _sort;
+  String _sortValue;
   bool _isDescending;
-  StaffListComponent(this._sort, this._isDescending);
+  StaffListComponent(this._sortValue, this._isDescending);
 
   @override
   _StaffListComponentState createState() => _StaffListComponentState();
@@ -17,7 +17,7 @@ class _StaffListComponentState extends State<StaffListComponent> {
   Widget build(BuildContext context) {
     Query _query = FirebaseFirestore.instance
         .collection('staff')
-        .orderBy(widget._sort, descending: widget._isDescending);
+        .orderBy(widget._sortValue, descending: widget._isDescending);
 
     return StreamBuilder<QuerySnapshot>(
       stream: _query.snapshots(),
