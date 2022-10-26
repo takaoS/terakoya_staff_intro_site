@@ -23,5 +23,16 @@ extension StaffExtention on Staff {
 
   String get staffColName => _staffColNames[this]!;
 
+  static final _sortValueNames = {
+    Staff.SkillTeam: 'スキルチーム順',
+    Staff.Terakoya: '寺子屋順',
+    Staff.prefectures: '都道府県順',
+    Staff.fullName_katakana: '名前順',
+    Staff.schoolYear: '学年順',
+    Staff.joinDate: '加入日順',
+  };
+
+  String get sortValueName => _sortValueNames[this]!;
+
   String asString() => this.toString().split('.').last;
 }

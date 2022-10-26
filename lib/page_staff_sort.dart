@@ -48,8 +48,13 @@ class _StaffListPageState extends State<StaffListPage> {
                   value: _sortValue,
                   items: _sortValueList.map((Staff sortValue) {
                     return DropdownMenuItem(
-                        value: sortValue.asString(),
-                        child: Text(sortValue.asString()));
+                      value: sortValue.asString(),
+                      child: Container(
+                        width: 120,
+                        alignment: Alignment.center,
+                        child: Text(sortValue.sortValueName),
+                      ),
+                    );
                   }).toList(),
                   onChanged: ((sortValue) {
                     setState(() {
