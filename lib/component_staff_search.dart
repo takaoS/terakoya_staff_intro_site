@@ -29,7 +29,9 @@ class _StaffSearchComponentState extends State<StaffSearchComponent> {
         } else if (snapshot.hasData || snapshot.data != null) {
           return StaffListComponent(snapshot);
         }
-        return const CircularProgressIndicator();
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
       },
     );
   }

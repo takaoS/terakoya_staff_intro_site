@@ -26,7 +26,9 @@ class _StaffSortComponentState extends State<StaffSortComponent> {
         } else if (snapshot.hasData || snapshot.data != null) {
           return StaffListComponent(snapshot);
         }
-        return const CircularProgressIndicator();
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
       },
     );
   }
