@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/component_staff_item.dart';
 import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
 
-class StaffListComponent extends StatefulWidget {
+class StaffSortComponent extends StatefulWidget {
   String _sortValue;
   bool _isDescending;
-  StaffListComponent(this._sortValue, this._isDescending);
+  StaffSortComponent(this._sortValue, this._isDescending);
 
   @override
-  _StaffListComponentState createState() => _StaffListComponentState();
+  _StaffSortComponentState createState() => _StaffSortComponentState();
 }
 
-class _StaffListComponentState extends State<StaffListComponent> {
+class _StaffSortComponentState extends State<StaffSortComponent> {
   @override
   Widget build(BuildContext context) {
     Query _query = FirebaseFirestore.instance

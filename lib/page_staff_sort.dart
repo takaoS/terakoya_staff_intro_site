@@ -84,7 +84,7 @@ class _StaffListPageState extends State<StaffListPage> {
               ),
             ),
             Expanded(
-              child: StaffListComponent(_sortValue, _isDescending),
+              child: StaffSortComponent(_sortValue, _isDescending),
             )
           ],
         ),
