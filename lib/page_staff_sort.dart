@@ -36,44 +36,52 @@ class _StaffListPageState extends State<StaffListPage> {
           ),
         ],
       ),
-      body: Center(
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.sort_by_alpha),
-                DropdownButton(
-                  value: _sortValue,
-                  items: _sortValueList.map((Staff sortValue) {
-                    return DropdownMenuItem(
-                      value: sortValue.asString(),
-                      child: Container(
-                        width: 120,
-                        alignment: Alignment.center,
-                        child: Text(sortValue.sortValueName),
-                      ),
-                    );
-                  }).toList(),
-                  onChanged: ((sortValue) {
-                    setState(() {
-                      _sortValue = sortValue!;
-                    });
-                  }),
-                ),
-                DropdownButton(
-                    value: _isDescending,
-                    items: const [
-                      DropdownMenuItem(value: false, child: Text('昇順')),
-                      DropdownMenuItem(value: true, child: Text(('降順'))),
-                    ],
-                    onChanged: ((value) {
-                      setState(() {
-                        _isDescending = value!;
-                      });
-                    })),
-              ],
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.sort_by_alpha),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: DropdownButton(
+                      value: _sortValue,
+                      items: _sortValueList.map((Staff sortValue) {
+                        return DropdownMenuItem(
+                          value: sortValue.asString(),
+                          child: Container(
+                            width: 120,
+                            alignment: Alignment.center,
+                            child: Text(sortValue.sortValueName),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: ((sortValue) {
+                        setState(() {
+                          _sortValue = sortValue!;
+                        });
+                      }),
+                    ),
+                  ),
+                  DropdownButton(
+                      value: _isDescending,
+                      items: const [
+                        DropdownMenuItem(value: false, child: Text('昇順')),
+                        DropdownMenuItem(value: true, child: Text(('降順'))),
+                      ],
+                      onChanged: ((value) {
+                        setState(() {
+                          _isDescending = value!;
+                        });
+                      })),
+                ],
+              ),
             ),
             Expanded(
               child: StaffListComponent(_sortValue, _isDescending),
