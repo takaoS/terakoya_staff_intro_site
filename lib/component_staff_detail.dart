@@ -47,6 +47,138 @@ class _StaffDetailComponentState extends State<StaffDetailComponent> {
               child: Text(
                   '${Staff.SkillTeam.staffColName}：${widget._staff[Staff.SkillTeam.asString()]}'),
             ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.university.staffColName}：${widget._staff[Staff.university.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.faculty.staffColName}：${widget._staff[Staff.faculty.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.department.staffColName}：${widget._staff[Staff.department.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.schoolYear.staffColName}：${widget._staff[Staff.schoolYear.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.humanities_sciences.staffColName}：${widget._staff[Staff.humanities_sciences.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.hometown.staffColName}：${widget._staff[Staff.hometown.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.birthDate.staffColName}：${widget._staff[Staff.birthDate.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.joinDate.staffColName}：${widget._staff[Staff.joinDate.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.talent.staffColName}：${widget._staff[Staff.talent.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.favoriteThing.staffColName}：${widget._staff[Staff.favoriteThing.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.fave.staffColName}：${widget._staff[Staff.fave.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.respectPerson.staffColName}：${widget._staff[Staff.respectPerson.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.kanji.staffColName}：${widget._staff[Staff.kanji.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.preciousWord.staffColName}：${widget._staff[Staff.preciousWord.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.goodPersonality.staffColName}：${widget._staff[Staff.goodPersonality.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.badPersonality.staffColName}：${widget._staff[Staff.badPersonality.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.idealSociety.staffColName}：\n${widget._staff[Staff.idealSociety.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.dream.staffColName}：\n${widget._staff[Staff.dream.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.interst.staffColName}：\n${widget._staff[Staff.interst.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.experience.staffColName}：\n${widget._staff[Staff.experience.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.challenge.staffColName}：\n${widget._staff[Staff.challenge.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.closingWords.staffColName}：\n${widget._staff[Staff.closingWords.asString()]}'),
+            ),
           ],
         )
       ],
