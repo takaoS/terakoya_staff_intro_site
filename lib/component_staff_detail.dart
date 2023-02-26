@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 
 class StaffDetailComponent extends StatefulWidget {
@@ -81,13 +82,13 @@ class _StaffDetailComponentState extends State<StaffDetailComponent> {
               padding:
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               child: Text(
-                  '${Staff.birthDate.staffColName}：${widget._staff[Staff.birthDate.asString()]}'),
+                  '${Staff.birthDate.staffColName}：${DateFormat('yyyy/MM/dd').format(widget._staff[Staff.birthDate.asString()].toDate())}'),
             ),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               child: Text(
-                  '${Staff.joinDate.staffColName}：${widget._staff[Staff.joinDate.asString()]}'),
+                  '${Staff.joinDate.staffColName}：${DateFormat('yyyy/MM/dd').format(widget._staff[Staff.joinDate.asString()].toDate())}'),
             ),
             Padding(
               padding:
