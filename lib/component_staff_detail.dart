@@ -75,12 +75,6 @@ class _StaffDetailComponentState extends State<StaffDetailComponent> {
               padding:
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               child: Text(
-                  '${Staff.humanities_sciences.staffColName}：${widget._staff[Staff.humanities_sciences.asString()]}'),
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-              child: Text(
                   '${Staff.hometown.staffColName}：${widget._staff[Staff.hometown.asString()]}'),
             ),
             Padding(
@@ -124,6 +118,12 @@ class _StaffDetailComponentState extends State<StaffDetailComponent> {
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               child: Text(
                   '${Staff.kanji.staffColName}：${widget._staff[Staff.kanji.asString()]}'),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Text(
+                  '${Staff.Yojijukugo.staffColName}：${widget._staff[Staff.Yojijukugo.asString()]}'),
             ),
             Padding(
               padding:
