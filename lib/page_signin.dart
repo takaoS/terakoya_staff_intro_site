@@ -16,7 +16,7 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ログイン'),
+        title: const Text('ログイン'),
       ),
       body: Center(
         child: Container(
@@ -35,10 +35,10 @@ class _SignInPageState extends State<SignInPage> {
                   },
                 ),
               ),
-              Text(resultMessage),
+              const SizedBox(height: 20),
               Container(
                 child: OutlinedButton(
-                  child: Text('ログイン'),
+                  child: const Text('ログイン'),
                   onPressed: ((() async {
                     try {
                       final FirebaseAuth auth = FirebaseAuth.instance;
@@ -56,6 +56,8 @@ class _SignInPageState extends State<SignInPage> {
                   })),
                 ),
               ),
+              const SizedBox(height: 20),
+              Text(resultMessage),
             ],
           ),
         ),
