@@ -22,13 +22,16 @@ class _SignInPageState extends State<SignInPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextFormField(
-                decoration: InputDecoration(labelText: 'パスワード'),
-                onChanged: (value) {
-                  setState(() {
-                    password = value;
-                  });
-                },
+              ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 150),
+                child: TextFormField(
+                  decoration: InputDecoration(labelText: 'パスワードを入力…'),
+                  onChanged: (value) {
+                    setState(() {
+                      password = value;
+                    });
+                  },
+                ),
               ),
               Text(resultMessage),
               Container(
