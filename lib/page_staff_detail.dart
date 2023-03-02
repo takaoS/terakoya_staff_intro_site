@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/component_staff_detail.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
+import 'package:terakoya_staff_intro_site/page_signin.dart';
 
 class StaffDetailPage extends StatefulWidget {
   var _staff;
@@ -30,6 +32,19 @@ class _StaffDetailPageState extends State<StaffDetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('${widget._staff[Staff.fullName.asString()]} のプロフィール'),
+        actions: [
+          IconButton(
+              icon: Icon(
+                Icons.logout,
+              ),
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                await Navigator.of(context)
+                    .pushReplacement(MaterialPageRoute(builder: ((context) {
+                  return SignInPage();
+                })));
+              }),
+        ],
       ),
       body: Center(
         child: Container(
