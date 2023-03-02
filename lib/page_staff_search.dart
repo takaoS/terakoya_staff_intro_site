@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/component_staff_search.dart';
+import 'package:terakoya_staff_intro_site/page_signin.dart';
 
 class StaffSearchPage extends StatefulWidget {
   @override
@@ -14,6 +16,19 @@ class _StaffSearchPageState extends State<StaffSearchPage> {
     return Scaffold(
       appBar: AppBar(
         title: _searchTextField(),
+        actions: [
+          IconButton(
+              icon: Icon(
+                Icons.logout,
+              ),
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                await Navigator.of(context)
+                    .pushReplacement(MaterialPageRoute(builder: ((context) {
+                  return SignInPage();
+                })));
+              }),
+        ],
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),

@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/component_staff_sort.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
+import 'package:terakoya_staff_intro_site/page_signin.dart';
 import 'package:terakoya_staff_intro_site/page_staff_search.dart';
 
 class StaffListPage extends StatefulWidget {
@@ -34,6 +36,17 @@ class _StaffListPageState extends State<StaffListPage> {
               }));
             },
           ),
+          IconButton(
+              icon: Icon(
+                Icons.logout,
+              ),
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                await Navigator.of(context)
+                    .pushReplacement(MaterialPageRoute(builder: ((context) {
+                  return SignInPage();
+                })));
+              }),
         ],
       ),
       body: Container(
