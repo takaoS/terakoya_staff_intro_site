@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:terakoya_staff_intro_site/page_staff_sort.dart';
 
 class SignInPage extends StatefulWidget {
   @override
@@ -6,9 +8,9 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  var email = 'info@cafe-de-terakoya.or.jp';
+  String email = 'info@cafe-de-terakoya.or.jp';
   var password = '';
-  var resultMessage = '';
+  String resultMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,21 @@ class _SignInPageState extends State<SignInPage> {
               Container(
                 child: OutlinedButton(
                   child: Text('ログイン'),
-                  onPressed: ((() {})),
+                  onPressed: ((() async {
+                    try {
+                      final FirebaseAuth auth = FirebaseAuth.instance;
+                      await auth.signInWithEmailAndPassword(
+                          email: email, password: password);
+                      await Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (context) {
+                        return StaffListPage();
+                      }));
+                    } catch (e) {
+                      setState(() {
+                        resultMessage = 'ログインに失敗しました。パスワードが正しいか確認してください。';
+                      });
+                    }
+                  })),
                 ),
               ),
             ],
