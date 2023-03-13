@@ -12,8 +12,8 @@ class StaffListItem extends StatelessWidget {
     if (_staff[Staff.Terakoya.asString()] != '') {
       info += ' / ${_staff[Staff.Terakoya.asString()]}';
     }
-    if (_staff[Staff.SkillTeam.asString()] != '') {
-      info += ' / ${_staff[Staff.SkillTeam.asString()]}';
+    if (_staff[Staff.team.asString()] != '') {
+      info += ' / ${_staff[Staff.team.asString()]}';
     }
 
     return Column(

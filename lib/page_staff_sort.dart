@@ -15,8 +15,6 @@ class _StaffListPageState extends State<StaffListPage> {
     Staff.fullName_katakana,
     Staff.prefectures,
     Staff.Terakoya,
-    Staff.SkillTeam,
-    Staff.schoolYear,
     Staff.joinDate,
   ];
   String _sortValue = Staff.fullName_katakana.asString();
