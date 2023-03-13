@@ -5,7 +5,8 @@ import 'package:terakoya_staff_intro_site/page_staff_detail.dart';
 
 class StaffListComponent extends StatefulWidget {
   AsyncSnapshot<QuerySnapshot<Object?>> _snapshot;
-  StaffListComponent(this._snapshot);
+  String _sortValue;
+  StaffListComponent(this._snapshot, this._sortValue);
 
   @override
   State<StaffListComponent> createState() => _StaffListComponentState();
@@ -38,7 +39,7 @@ class _StaffListComponentState extends State<StaffListComponent> {
                   alignment: Alignment.topCenter,
                   color: Colors.blueGrey[50],
                   child: SingleChildScrollView(
-                    child: StaffListItem(staff),
+                    child: StaffListItem(staff, widget._sortValue),
                   ),
                 ),
               );

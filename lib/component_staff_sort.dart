@@ -29,7 +29,7 @@ class _StaffSortComponentState extends State<StaffSortComponent> {
         if (snapshot.hasError) {
           return const Text('不具合が発生しました…サポートロボにお問い合わせください (error code: 001)');
         } else if (snapshot.hasData || snapshot.data != null) {
-          return StaffListComponent(snapshot);
+          return StaffListComponent(snapshot, sortValue);
         }
         return const Center(
           child: CircularProgressIndicator(),
