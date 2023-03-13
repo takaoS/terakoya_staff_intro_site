@@ -46,7 +46,7 @@ class _StaffDetailComponentState extends State<StaffDetailComponent> {
               padding:
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               child: Text(
-                  '${Staff.SkillTeam.staffColName}：${widget._staff[Staff.SkillTeam.asString()]}'),
+                  '${Staff.team.staffColName}：${widget._staff[Staff.team.asString()]}'),
             ),
             Padding(
               padding:

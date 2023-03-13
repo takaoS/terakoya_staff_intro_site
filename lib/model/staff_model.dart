@@ -1,5 +1,5 @@
 enum Staff {
-  SkillTeam,
+  team,
   Terakoya,
   prefectures,
   fullName,
@@ -27,13 +27,14 @@ enum Staff {
   experience,
   challenge,
   closingWords,
+  TerakoyaNum,
   imgUrl,
   haystack,
 }
 
 extension StaffExtention on Staff {
   static final _staffColNames = {
-    Staff.SkillTeam: 'スキルチーム',
+    Staff.team: 'スキルチーム・プロジェクトチーム',
     Staff.Terakoya: '寺子屋',
     Staff.prefectures: '活動する都道府県',
     Staff.fullName: '名前',
@@ -66,11 +67,9 @@ extension StaffExtention on Staff {
   String get staffColName => _staffColNames[this]!;
 
   static final _sortValueNames = {
-    Staff.SkillTeam: 'スキルチーム順',
     Staff.Terakoya: '寺子屋順',
     Staff.prefectures: '都道府県順',
     Staff.fullName_katakana: '名前順',
-    Staff.schoolYear: '学年順',
     Staff.joinDate: '加入日順',
   };
 

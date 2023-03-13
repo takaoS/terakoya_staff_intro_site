@@ -12,6 +12,8 @@ class StaffSearchComponent extends StatefulWidget {
 }
 
 class _StaffSearchComponentState extends State<StaffSearchComponent> {
+  String sortValue = Staff.prefectures.asString();
+
   @override
   Widget build(BuildContext context) {
     Query query = FirebaseFirestore.instance.collection('staff');
@@ -27,7 +29,7 @@ class _StaffSearchComponentState extends State<StaffSearchComponent> {
         if (snapshot.hasError) {
           return const Text('不具合が発生しました…サポートロボにお問い合わせください (error code: 002)');
         } else if (snapshot.hasData || snapshot.data != null) {
-          return StaffListComponent(snapshot);
+          return StaffListComponent(snapshot, sortValue);
         }
         return const Center(
           child: CircularProgressIndicator(),
