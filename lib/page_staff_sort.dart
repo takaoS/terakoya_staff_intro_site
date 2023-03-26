@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:terakoya_staff_intro_site/component_staff_sort.dart';
 import 'package:terakoya_staff_intro_site/model/staff_model.dart';
 import 'package:terakoya_staff_intro_site/page_signin.dart';
 import 'package:terakoya_staff_intro_site/page_staff_search.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StaffListPage extends StatefulWidget {
   @override
@@ -53,6 +55,37 @@ class _StaffListPageState extends State<StaffListPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            RichText(
+                text: TextSpan(children: [
+              const TextSpan(
+                text: '情報を更新したい場合は',
+                style: TextStyle(color: Colors.black87),
+              ),
+              TextSpan(
+                  text: 'こちら',
+                  style: const TextStyle(color: Colors.blue),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      launchUrl(
+                          Uri.parse('https://forms.gle/Jw2VHdrsx7X7S25G8'));
+                    })
+            ])),
+            const Text('※ Googleアカウントのログインが必要です'),
+            RichText(
+                text: TextSpan(children: [
+              const TextSpan(
+                text: '\n※ 上記フォームが開けない場合は',
+                style: TextStyle(color: Colors.black87),
+              ),
+              TextSpan(
+                  text: 'こちら',
+                  style: const TextStyle(color: Colors.blue),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      launchUrl(
+                          Uri.parse('https://forms.gle/e5b4G5FcAoFhiPHJ7'));
+                    })
+            ])),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 30),
               child: Row(
